@@ -79,14 +79,13 @@ knitr::include_graphics("www/cheatSheets.png")
 
 ## Exercise
 
-Download github repos
+Create local rstudio project of
+https://github.com/wstolte/PizzaCourse2atDeltares
+(requires Git installation)
 
-Create rstudio project
+try some templates
 
-try templates
-
-
-
+alt: download repos and start Rstudio project there
 
 
 ## Rmarkdown
@@ -179,7 +178,15 @@ in Rmarkdown:
 Or run inline code to calculate that the average speed = \`r_ mean(cars$speed) \` .
 
 
-## Break
+## BREAK?
+
+
+## Parameterized documents
+
+Start rstudio project from 
+https://github.com/wstolte/pizzaParameterizedRmarkdown
+
+And run script GenerateFactSheetsOpdrachtnemer.R
 
 
 
@@ -203,6 +210,21 @@ Builds on Rmarkdown
 * Tools for making your own templates
 
 [home to bookdown](https://bookdown.org/yihui/bookdown/)
+
+## Excercise
+
+Start Rstudio project from https://github.com/wstolte/PizzaCourseBookdown
+
+Plenary explanation, then play around with it. 
+
+
+## Python scripts
+
+
+## Deltares report pdf template
+
+
+
 
 ## example WFS
 
