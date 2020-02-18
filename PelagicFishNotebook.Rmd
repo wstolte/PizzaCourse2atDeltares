@@ -1,0 +1,33 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Connect to WFS
+
+Read WFS layer and plot in leaflet map
+The data that are used here are pelagic fish data from the MEP-NSW ecological monitoring. 
+```{r}
+library(sf)
+library(leaflet)
+```
+
+
+
+```{r, out.width = "70%", fig.cap = "Map of pelagic fish haul locations (only first 50 records)"}
+
+url3 <- "http://marineprojects.openearth.nl/geoserver/mep-nsw/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=mep-nsw:mep-nsw_pvis&maxFeatures=50&outputFormat=application%2Fjson"
+
+# read using sf (simple features) package
+pvis <- sf::read_sf(url3)
+
+leaflet(data = pvis) %>%
+  addTiles(group = "OSM") %>%
+  addProviderTiles(providers$Esri.WorldImagery, group = "Esri.WorldImagery") %>%
+  addProviderTiles("OpenSeaMap", group = "OpenSeaMap", options(opacity = 0.4)) %>%
+  addCircleMarkers(label = ~as.character(Metingomschrijving), group = "hauls") %>%
+  leaflet::addLayersControl(
+    baseGroups = c("OSM", "Esri.WorldImagery"), 
+    overlayGroups = c("OpenSeaMap", "hauls")) 
+
+```
